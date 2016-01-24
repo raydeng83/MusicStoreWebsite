@@ -34,16 +34,6 @@ public class AdminProduct {
     @Autowired
     private ProductService productService;
 
-
-
-    @RequestMapping("/productInventory")
-    public String productInventory(Model model) {
-        List<Product> products = productService.getProductList();
-        model.addAttribute("products", products);
-
-        return "productInventory";
-    }
-
     @RequestMapping("/product/addProduct")
     public String addProduct(Model model) {
         Product product = new Product();

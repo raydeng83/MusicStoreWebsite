@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by Le on 1/23/2016.
  */
@@ -65,6 +67,13 @@ public class CustomerDaoImpl implements CustomerDao {
         query.setString(0, username);
 
         return (Customer) query.uniqueResult();
+    }
+
+    public List<Customer> getAllCustomers () {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Customer");
+        List<Customer> customerList = query.list();
+        return customerList;
     }
 
 }

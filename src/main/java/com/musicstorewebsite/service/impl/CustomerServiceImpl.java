@@ -6,6 +6,8 @@ import com.musicstorewebsite.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by Le on 1/23/2016.
  */
@@ -26,6 +28,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     public Customer getCustomerByUsername (String username) {
         return customerDao.getCustomerByUsername(username);
+    }
+
+    public List<Customer> getAllCustomers() {
+        return customerDao.getAllCustomers();
     }
 
 }
