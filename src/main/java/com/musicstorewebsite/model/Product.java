@@ -41,6 +41,7 @@ public class Product implements Serializable {
     private MultipartFile productImage;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<CartItem> cartItemList;
 
     public int getProductId() {

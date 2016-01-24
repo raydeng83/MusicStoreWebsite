@@ -38,30 +38,31 @@ public class CartResources {
     private CartItemService cartItemService;
 
     @RequestMapping(value = "/{cartId}", method = RequestMethod.GET)
-    public @ResponseBody
+    public
+    @ResponseBody
     Cart getCartById(@PathVariable(value = "cartId") int cartId) {
         return cartService.getCartById(cartId);
     }
 
-    @RequestMapping(value="/{cartId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void updateCart(@PathVariable(value = "cartId" ) int cartId, @RequestBody Cart cart) {
+    public void updateCart(@PathVariable(value = "cartId") int cartId, @RequestBody Cart cart) {
         cartService.updateCart(cart);
     }
 
-    @RequestMapping(value="/add/{productId}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void addItem(@PathVariable (value = "productId") int productId, @AuthenticationPrincipal User activeUser) {
+    public void addItem(@PathVariable(value = "productId") int productId, @AuthenticationPrincipal User activeUser) {
 
         Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
         Cart cart = customer.getCart();
         Product product = productService.getProductById(productId);
         List<CartItem> cartItems = cart.getCartItems();
 
-        for(int i=0;i < cartItems .size(); i++) {
-            if (product.getProductId()==cartItems.get(i).getProduct().getProductId()) {
+        for (int i = 0; i < cartItems.size(); i++) {
+            if (product.getProductId() == cartItems.get(i).getProduct().getProductId()) {
                 CartItem cartItem = cartItems.get(i);
-                cartItem.setQuantity(cartItem.getQuantity()+1);
+                cartItem.setQuantity(cartItem.getQuantity() + 1);
                 cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
                 cartItemService.addCartItem(cartItem);
                 cartService.updateCart(cart);
@@ -79,8 +80,8 @@ public class CartResources {
         cartService.updateCart(cart);
     }
 
-    @RequestMapping(value="/remove/{productId}", method=RequestMethod.PUT)
-    @ResponseStatus(value=HttpStatus.NO_CONTENT)
+    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem(@PathVariable int productId, @AuthenticationPrincipal User activeUser) {
         Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
         Cart cart = customer.getCart();
@@ -89,11 +90,27 @@ public class CartResources {
         cartService.updateCart(cart);
     }
 
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable(value = "cartId") int cartId) {
+        Cart cart = cartService.getCartById(cartId);
+        List<CartItem> cartItems = cart.getCartItems();
+
+        for (CartItem item : cartItems) {
+            cartItemService.removeCartItem(item);
+        }
+
+        cartService.updateCart(cart);
+
+    }
+
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Illegal request, please verify your payload")
-    public void handleClientErrors(Exception e){}
+    public void handleClientErrors(Exception e) {
+    }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server")
-    public void handleServerErrors(Exception e){}
+    public void handleServerErrors(Exception e) {
+    }
 }
