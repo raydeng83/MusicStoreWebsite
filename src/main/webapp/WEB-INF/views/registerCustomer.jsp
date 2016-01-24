@@ -21,7 +21,8 @@
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email">Email</label><span style="color: #ff0000;">  ${emailMsg} </span><form:errors
+                path="customerEmail" cssStyle="color: #ff0000;"/>
             <form:input path="customerEmail" id="email" class="form-Control"/>
         </div>
 
@@ -31,18 +32,21 @@
         </div>
 
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username">Username</label><span style="color: #ff0000;">  ${usernameMsg}
+        </span><form:errors path="username" cssStyle="color: #ff0000;"/>
             <form:input path="username" id="username" class="form-Control"/>
         </div>
 
         <div class="form-group">
-            <label for="password">password</label>
+            <label for="password">password</label><form:errors
+                path="password" cssStyle="color: #ff0000;"/>
             <form:password path="password" id="password" class="form-Control"/>
         </div>
         <br>
 
 
         <h3>Billing Address</h3>
+
         <div class="form-group">
             <label for="billingStreet">Street Name</label>
             <form:input path="billingAddress.streetName" id="billingStreet" class="form-Control"/>
@@ -75,6 +79,7 @@
         <br>
 
         <h3>Shipping Address</h3>
+
         <div class="form-group">
             <label for="shippingStreet">Street Name</label>
             <form:input path="shippingAddress.streetName" id="shippingStreet" class="form-Control"/>

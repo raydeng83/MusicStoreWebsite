@@ -2,6 +2,7 @@ package com.musicstorewebsite.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,10 +19,18 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue
     private int customerId;
+
+    @NotEmpty(message = "The customer name must not be null.")
     private String customerName;
+
+    @NotEmpty (message = "The customer email must not be null.")
     private String customerEmail;
     private String customerPhone;
+
+    @NotEmpty (message = "The username must not be null.")
     private String username;
+
+    @NotEmpty (message = "The password must not be null.")
     private String password;
     private boolean enabled;
 
