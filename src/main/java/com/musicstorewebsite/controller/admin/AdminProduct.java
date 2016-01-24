@@ -27,12 +27,14 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class ProductAdmin {
+public class AdminProduct {
 
     private Path path;
 
     @Autowired
     private ProductService productService;
+
+
 
     @RequestMapping("/productInventory")
     public String productInventory(Model model) {

@@ -11,4 +11,5 @@ public interface CustomerDao {
 
     Customer getCustomerById (int customerId);
 
+    Customer getCustomerByUsername (String username);
 }

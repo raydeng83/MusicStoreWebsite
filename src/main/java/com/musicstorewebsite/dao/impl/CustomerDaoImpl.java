@@ -5,6 +5,7 @@ import com.musicstorewebsite.model.Authorities;
 import com.musicstorewebsite.model.Cart;
 import com.musicstorewebsite.model.Customer;
 import com.musicstorewebsite.model.Users;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +59,12 @@ public class CustomerDaoImpl implements CustomerDao {
         return (Customer) session.get(Customer.class, customerId);
     }
 
+    public Customer getCustomerByUsername (String username) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from Customer where username = ?");
+        query.setString(0, username);
+
+        return (Customer) query.uniqueResult();
+    }
 
 }

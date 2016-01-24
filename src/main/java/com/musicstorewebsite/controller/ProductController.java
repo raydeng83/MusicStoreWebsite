@@ -30,7 +30,7 @@ public class ProductController {
         return "productList";
     }
 
-    @RequestMapping("/product/viewProduct/{productId}")
+    @RequestMapping("/viewProduct/{productId}")
     public String viewProduct(@PathVariable int productId, Model model) throws IOException {
 
         Product product = productService.getProductById(productId);

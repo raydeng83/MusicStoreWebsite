@@ -10,7 +10,7 @@
             <p class="lead">Please fill in your information below:</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/customer/register" method="post"
+        <form:form action="${pageContext.request.contextPath}/register" method="post"
                    commandName="customer">
 
         <h3>Basic Info</h3>
