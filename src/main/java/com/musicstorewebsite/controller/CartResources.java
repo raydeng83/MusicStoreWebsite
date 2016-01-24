@@ -74,9 +74,7 @@ public class CartResources {
 
     @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void removeItem(@PathVariable int productId, @AuthenticationPrincipal User activeUser) {
-        Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
-        Cart cart = customer.getCart();
+    public void removeItem(@PathVariable int productId) {
         CartItem cartItem = cartItemService.getCartItemByProductId(productId);
         cartItemService.removeCartItem(cartItem);
     }
@@ -85,12 +83,7 @@ public class CartResources {
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(value = "cartId") int cartId) {
         Cart cart = cartService.getCartById(cartId);
-        List<CartItem> cartItems = cart.getCartItems();
-
-        for (CartItem item : cartItems) {
-            cartItemService.removeCartItem(item);
-        }
-
+        cartItemService.removeAllCartItems(cart);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

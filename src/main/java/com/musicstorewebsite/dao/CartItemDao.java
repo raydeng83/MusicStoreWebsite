@@ -1,5 +1,6 @@
 package com.musicstorewebsite.dao;
 
+import com.musicstorewebsite.model.Cart;
 import com.musicstorewebsite.model.CartItem;
 
 /**
@@ -10,6 +11,8 @@ public interface CartItemDao {
     void addCartItem(CartItem cartItem);
 
     void removeCartItem (CartItem cartItem);
+
+    void removeAllCartItems (Cart cart);
 
     CartItem getCartItemByProductId (int productId);
 }

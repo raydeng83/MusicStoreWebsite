@@ -1,6 +1,7 @@
 package com.musicstorewebsite.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,9 @@ import java.util.List;
  */
 
 @Entity
-public class OrderHistory {
+public class OrderHistory implements Serializable {
+
+    private static final long serialVersionUID = 1083533250613139445L;
 
     @Id
     @GeneratedValue
