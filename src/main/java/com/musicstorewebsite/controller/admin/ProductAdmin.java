@@ -1,4 +1,4 @@
-package com.musicstorewebsite.controller;
+package com.musicstorewebsite.controller.admin;
 
 import com.musicstorewebsite.model.Product;
 import com.musicstorewebsite.service.ProductService;
@@ -27,7 +27,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController {
+public class ProductAdmin {
 
     private Path path;
 
