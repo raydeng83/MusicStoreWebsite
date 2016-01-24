@@ -1,6 +1,5 @@
 package com.musicstorewebsite.controller;
 
-import com.musicstorewebsite.model.Cart;
 import com.musicstorewebsite.model.Customer;
 import com.musicstorewebsite.service.CartService;
 import com.musicstorewebsite.service.CustomerService;
@@ -36,8 +35,6 @@ public class CartController {
     @RequestMapping(value="/{cartId}", method = RequestMethod.GET)
     public String getCart(@PathVariable(value = "cartId") int cartId, Model model) {
         model.addAttribute("cartId", cartId);
-        Cart cart = cartService.getCartById(cartId);
-        cartService.updateCart(cart);
 
         return "cart";
     }

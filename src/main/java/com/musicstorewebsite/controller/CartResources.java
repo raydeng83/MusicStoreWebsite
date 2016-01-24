@@ -44,12 +44,6 @@ public class CartResources {
         return cartService.getCartById(cartId);
     }
 
-    @RequestMapping(value = "/{cartId}", method = RequestMethod.PUT)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void updateCart(@PathVariable(value = "cartId") int cartId, @RequestBody Cart cart) {
-        cartService.updateCart(cart);
-    }
-
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem(@PathVariable(value = "productId") int productId, @AuthenticationPrincipal User activeUser) {
@@ -65,7 +59,6 @@ public class CartResources {
                 cartItem.setQuantity(cartItem.getQuantity() + 1);
                 cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
                 cartItemService.addCartItem(cartItem);
-                cartService.updateCart(cart);
 
                 return;
             }
@@ -77,7 +70,6 @@ public class CartResources {
         cartItem.setTotalPrice(product.getProductPrice() * cartItem.getQuantity());
         cartItem.setCart(cart);
         cartItemService.addCartItem(cartItem);
-        cartService.updateCart(cart);
     }
 
     @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
@@ -87,7 +79,6 @@ public class CartResources {
         Cart cart = customer.getCart();
         CartItem cartItem = cartItemService.getCartItemByProductId(productId);
         cartItemService.removeCartItem(cartItem);
-        cartService.updateCart(cart);
     }
 
     @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
@@ -99,8 +90,6 @@ public class CartResources {
         for (CartItem item : cartItems) {
             cartItemService.removeCartItem(item);
         }
-
-        cartService.updateCart(cart);
 
     }
 
