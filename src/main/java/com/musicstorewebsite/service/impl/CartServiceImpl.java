@@ -19,4 +19,7 @@ public class CartServiceImpl implements CartService{
         return cartDao.getCartById(cartId);
     }
 
+    public void update(Cart cart) {
+        cartDao.update(cart);
+    }
 }

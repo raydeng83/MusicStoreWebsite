@@ -32,12 +32,23 @@ cartApp.controller('cartCtrl', function ($scope, $http) {
             }).error(function _errorPut() {
         });
     };
+
     $scope.removeFromCart = function (productId) {
         $http.put('/MusicStoreWebsite/rest/cart/remove/' + productId)
             .success(function _successPut() {
                 $scope.refreshCart();
             }).error(function _errorPut() {
         });
+    };
+
+    $scope.calGrandTotal = function() {
+        var grandTotal=0;
+
+        for (var i=0; i<$scope.cart.cartItems.length; i++) {
+            grandTotal+=$scope.cart.cartItems[i].totalPrice;
+        }
+
+        return grandTotal;
     };
 
 
