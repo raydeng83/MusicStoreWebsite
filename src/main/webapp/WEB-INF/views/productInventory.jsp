@@ -2,7 +2,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <!-- Table CSS -->
-<link href="<c:url value="/resources/css/table.css" />" rel="stylesheet">
+<%--<link href="<c:url value="/resources/css/table.css" />" rel="stylesheet">--%>
+
+<script>
+    $(document).ready(function() {
+        $('.table').DataTable({
+            "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]]
+        });
+    });
+</script>
 
 <div class="container-wrapper">
     <div class="container">

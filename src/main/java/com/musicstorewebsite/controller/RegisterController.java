@@ -39,7 +39,7 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String addProductPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model
+    public String registerCustomerPost(@Valid @ModelAttribute("customer") Customer customer, BindingResult result, Model
             model) {
 
         if (result.hasErrors()) {

@@ -24,8 +24,7 @@
                     <input type="hidden" name="_flowExecutionKey"
                            value="${flowExecutionKey}"/>
 
-                    <div
-                            class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                    <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
                         <div class="text-center">
                             <h1>Receipt</h1>
                         </div>
@@ -45,8 +44,7 @@
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                                 <p>
-                                    <em>Shipping Date: <fmt:formatDate type="date"
-                                                                       value="${now}"/></em>
+                                    <em>Shipping Date: <fmt:formatDate type="date" value="${now}"/></em>
                                 </p>
                             </div>
                         </div>

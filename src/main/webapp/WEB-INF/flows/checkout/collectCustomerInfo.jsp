@@ -20,32 +20,31 @@
             <form:form commandName="order" class="form-horizontal">
                 <fieldset>
                     <legend>Customer Details</legend>
-                    <h1>Test ${order.cart.customer.customerName}</h1>
-
 
                     <div class="form-group">
                         <label class="control-label col-lg-2" for="name">Name</label>
 
                         <div class="col-lg-10">
-                            <form:input id="name" path="cart.customer.customerName" type="text" class="form:input-large" />
+                            <form:input id="name" path="cart.customer.customerName" type="text"
+                                        class="form:input-large"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                    <label class="control-label col-lg-2" for="email">Email</label>
+                        <label class="control-label col-lg-2" for="email">Email</label>
 
-                    <div class="col-lg-10">
-                        <form:input id="email" path="cart.customer.customerEmail" type="text"
-                                    class="form:input-large" />
+                        <div class="col-lg-10">
+                            <form:input id="email" path="cart.customer.customerEmail" type="text"
+                                        class="form:input-large"/>
+                        </div>
                     </div>
-                </div>
 
                     <div class="form-group">
                         <label class="control-label col-lg-2" for="phone">Phone</label>
 
                         <div class="col-lg-10">
                             <form:input id="phone" path="cart.customer.customerPhone" type="text"
-                                        class="form:input-large" />
+                                        class="form:input-large"/>
                         </div>
                     </div>
 
@@ -54,7 +53,7 @@
 
                         <div class="col-lg-10">
                             <form:input id="street" path="cart.customer.billingAddress.streetName" type="text"
-                                        class="form:input-large" />
+                                        class="form:input-large"/>
                         </div>
                     </div>
 
@@ -63,7 +62,7 @@
 
                         <div class="col-lg-10">
                             <form:input id="apartment" path="cart.customer.billingAddress.apartmentNumber" type="text"
-                                        class="form:input-large" />
+                                        class="form:input-large"/>
                         </div>
                     </div>
 
@@ -81,7 +80,7 @@
 
                         <div class="col-lg-10">
                             <form:input id="state" path="cart.customer.billingAddress.state" type="text"
-                                        class="form:input-large" />
+                                        class="form:input-large"/>
                         </div>
                     </div>
 
@@ -90,18 +89,18 @@
 
                         <div class="col-lg-10">
                             <form:input id="country" path="cart.customer.billingAddress.country" type="text"
-                                        class="form:input-large" />
+                                        class="form:input-large"/>
                         </div>
                     </div>
 
                     <div class="form-group">
-                    <label class="control-label col-lg-2" for="zipCode">Zip Code</label>
+                        <label class="control-label col-lg-2" for="zipCode">Zip Code</label>
 
-                    <div class="col-lg-10">
-                        <form:input id="zipCode" path="cart.customer.billingAddress.zipCode" type="text"
-                                    class="form:input-large" />
+                        <div class="col-lg-10">
+                            <form:input id="zipCode" path="cart.customer.billingAddress.zipCode" type="text"
+                                        class="form:input-large"/>
+                        </div>
                     </div>
-                </div>
 
                     <input type="hidden" name="_flowExecutionKey"/>
 

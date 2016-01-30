@@ -3,8 +3,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 <!-- Table CSS -->
-<link href="<c:url value="/resources/css/table.css" />" rel="stylesheet">
+<%--<link href="<c:url value="/resources/css/table.css" />" rel="stylesheet">--%>
 
+<script>
+    $(document).ready(function() {
+        var searchCondition = '${searchCondition}';
+
+        $('.table').DataTable({
+            "lengthMenu": [[1, 5, 10, 25, 50, -1], [1, 5, 10, 25, 50, "All"]],
+            "oSearch": {"sSearch": searchCondition}
+        });
+    });
+</script>
 
 <div class="container-wrapper">
     <div class="container">
