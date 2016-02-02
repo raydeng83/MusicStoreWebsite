@@ -7,9 +7,9 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/musicstorewebsite"/>
-        <property name="username" value="root"/>
-        <property name="password" value="sesame"/>
+        <property name="url" value="jdbc:mysql://sql5.freemysqlhosting.net:3306/sql5105174"/>
+        <property name="username" value="sql5105174"/>
+        <property name="password" value="VWN3Aje6yi"/>
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
