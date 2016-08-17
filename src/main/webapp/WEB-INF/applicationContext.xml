@@ -7,9 +7,9 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://sql5.freemysqlhosting.net:3306/sql5105174"/>
-        <property name="username" value="sql5105174"/>
-        <property name="password" value="VWN3Aje6yi"/>
+        <property name="url" value="jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_16125c005eccd03?reconnect=true"/>
+        <property name="username" value="bc90fb2d11bfb9"/>
+        <property name="password" value="6dc44de9"/>
     </bean>
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
