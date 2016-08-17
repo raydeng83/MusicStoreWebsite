@@ -10,7 +10,7 @@
         var searchCondition = '${searchCondition}';
 
         $('.table').DataTable({
-            "lengthMenu": [[1, 5, 10, 25, 50, -1], [1, 5, 10, 25, 50, "All"]],
+            "lengthMenu": [[3, 5, 10, 25, 50, -1], [3, 5, 10, 25, 50, "All"]],
             "oSearch": {"sSearch": searchCondition}
         });
     });
